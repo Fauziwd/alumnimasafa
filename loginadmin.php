@@ -9,7 +9,7 @@
     <style>
         /* Styling for the eye button */
         .eye-btn {
-            background-image: url('witness.png'); /*path to your image*/
+            background-image: url('witness.ico'); /*path to your image*/
             background-repeat: no-repeat;
             background-position: center;
             width: 25px;
@@ -69,9 +69,9 @@ transform: rotate(45deg);
 <div class="d-flex justify-content-center">
 <div class="card">
 <div class="card-body" style="width: 18rem;">
-<form class="" action="aksilogin.php" method="post">
+<form class="" action="aksiloginadmin.php" method="post">
 <div class="mb-3">
-<label for="username" class="form-label">Username</label>
+<label for="username" class="form-label">Login Admin</label>
 <input type="text" class="form-control" id="username" aria-describedby="" name="username">
 </div>
 <div class="input-group">
@@ -90,7 +90,7 @@ transform: rotate(45deg);
 
 </div>
 <button type="submit" class="mb-3 btn btn-primary">Submit</button>
-<p class="login-register-text"> belum punya akun? <a href="register.php" style="text-decoration:none; color: red;"><strong>Register Disini</strong></a></p>
+<!-- <p class="login-register-text"> belum punya akun? <a href="register.php" style="text-decoration:none; color: red;"><strong>Register Disini</strong></a></p> -->
 </form>
 </div>
 </div>

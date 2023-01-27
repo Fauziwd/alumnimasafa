@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Motivation Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="center-container">
+        <button class="btn" onclick="displayMotivation()" 
+        onmousedown="this.style.transform = 'scale(0.9)'" onmouseup="this.style.transform
+         = 'scale(1)'">Klik Disini</button>
+      </div>
+      <div id="message-container" class="message-container"></div>
+    </div>
+     
+      <style>
+        /* tombol neumorphism */
+        .btn {
+  min-width:150px ;
+  padding: 15px 10px;
+  margin: 20px;
+  background: rgb(214, 214, 214);
+  border: none;
+  border-radius: 20px;
+  color: rgb(50, 207, 207);
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: -7px -7px 20px 0 rgba(255, 255, 255, 0.7),
+  7px 7px 20px 0 rgba(0, 0, 0, 0.2);
+        }
+        .btn:hover {
+          box-shadow: inset -7px -7px 20px 0 rgba(255, 255, 255, 0.7),
+          inset 7px 7px 20px 0 rgba(0, 0, 0, 0.2);
+          color: rgb(44, 179, 179);
+        }
+/* end .neumorphism-button */
+
+        .center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  /* .motivation-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .motivation-button:hover {
+    transform: scale(1.1);
+    background-color: #3E8E41;
+    box-shadow: 0px 0px 10px 0px #3E8E41;
+  } */
+
+  .center-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+}
+.message-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  text-align:center;
+  font-family: 'ubuntu', sans-serif;
+  margin: 240px;
+  text-decoration: dotted;
+}
+.fade-in {
+    animation: fade-in 0.5s linear;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+      </style>
+    <script>
+      function displayMotivation() {
+    var motivations = [
+      // "Belajar adalah jalan menuju keberhasilan.",
+      // "Belajar tanpa kerja keras sama saja dengan berjudi.",
+      // "Belajar adalah kunci keberhasilan.",
+      // "Belajar adalah cara untuk membuka pintu masa depan yang cerah.",
+      // "Belajar adalah investasi terbaik untuk masa depanmu.",
+      // "Kelulusan itu membuat seorang tidak lagi dapat menikmati belajar (Jundi).",
+      "Diam tolah-toleh, Bergerak salah kabeh.",
+      "Kenapa ayam kakinya dua? karna aku mencintai Allah SWT.",
+      "Setiap ada kelebihan, pasti ada kembalian.",
+      "Jikalau kamu merasa tidak berguna, Ingatlah! itu memang benar..",
+
+    ];
+
+    var i = Math.floor(Math.random() * motivations.length);
+    document.getElementById("message-container").classList.add("fade-in");
+    document.getElementById("message-container").innerHTML = motivations[i] + "<br> - Quotes";
+    document.getElementById("message-container").classList.add("fade-in");
+    setTimeout(function() {
+        document.getElementById("message-container").classList.remove("fade-in");
+    }, 500); // 500 ms = 0.5 detik
+
+      }
+
+    </script>
+  </body>
+</html>

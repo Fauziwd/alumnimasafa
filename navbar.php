@@ -1,11 +1,28 @@
-<nav class="navbar navbar-expand-lg" style="background-color: white;">
-    <div class="container shadow-lg p-2 mb-4" style="background-color: #B6E2A1; border-radius: 3px;  ">
-        <a class="navbar-brand" href="home.php" style="background-color: #064420; border-radius: 10px; width: 250px; text-align: center; font-weight:bold; color: white;">MASAFA Database</a>
+<!doctype html>
+<html lang="en">
+
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<nav class="navbar navbar-expand-lg dark-mode;">
+    <div class="container shadow-lg p-2 mb-4 dark-mode" style="background-color: #B6E2A1; border-radius: 3px;  ">
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+    ≣
+</button>&nbsp;
+        <a class="navbar-brand" href="loginadmin.php" style="font-family: 'Montserrat', sans-serif; background-color: #064420; border-radius: 10px; width: 250px; text-align: center; font-weight:bold; color: white;">MASAFA Database</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-family: 'Montserrat', sans-serif;">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 
                 <!-- <li class="nav-item">
@@ -30,8 +47,32 @@
             </ul>
             <form action="" method="GET" class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="pencarian" value="<?=(isset($_GET['pencarian']))? $_GET['pencarian']:""?>">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class="btn btn-outline-success" type="submit" style=" margin-right:10px;">Search</button>
+                <button type="button" class="btn btn-outline-dark" id="dark-mode-toggle">
+  <i id="dark-mode-icon" class="fas fa-light"></i>
+</button>
             </form>
         </div>
     </div>
 </nav>
+
+<script>
+    var darkModeToggle = document.getElementById("dark-mode-toggle");
+    var darkModeIcon = document.getElementById("dark-mode-icon");
+    var body = document.getElementsByTagName("body")[0];
+    var darkMode = false;
+
+    darkModeToggle.addEventListener("click", function() {
+        if (!darkMode) {
+            body.classList.add("dark-mode");
+            darkModeIcon.classList.remove("fa-light");
+            darkModeIcon.classList.add("fa-dark");
+            darkMode = true;
+        } else {
+            body.classList.remove("dark-mode");
+            darkModeIcon.classList.remove("fa-dark");
+            darkModeIcon.classList.add("fa-light");
+            darkMode = false;
+        }
+    });
+</script>

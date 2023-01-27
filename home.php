@@ -1,5 +1,6 @@
 <?php
 
+
 $menu = "data";
 
 require_once('koneksi.php');
@@ -41,7 +42,7 @@ $ambil_data_nohp = mysqli_query($con, $query);
 if (isset($_GET['pencarian'])) {
     $cari = $_GET['pencarian'];
     // panggil table data siswa
-    $ambil_data = mysqli_query($con, "SELECT a.*,k.angkatan FROM `data_siswa` a left JOIN  daftar_kelas b on b.no_siswa=a.no left join kelas k on k.id=b.id_kelas where a.nama like '%$cari%' ");
+    $ambil_data = mysqli_query($con, "SELECT a.*,k.angkatan FROM `data_siswa` a left JOIN  daftar_kelas b on b.no_siswa=a.no left join alumni k on k.id=b.id_kelas where a.nama like '%$cari%' ");
 } else {
     if (isset($_GET['page'])) {
         $page = $_GET['page'];
@@ -55,7 +56,7 @@ if(isset($_GET['offset'])){
     $offset = $_GET['offset'];
 }
     // panggil seluruh table data siswa
-   $ambil_data = mysqli_query($con, "SELECT a.*,k.angkatan FROM `data_siswa` a left JOIN daftar_kelas b on b.no_siswa=a.no left join kelas k on k.id=b.id_kelas ORDER BY k.angkatan, a.nama ASC LIMIT $offset, 10");
+   $ambil_data = mysqli_query($con, "SELECT a.*,k.angkatan FROM `data_siswa` a left JOIN daftar_kelas b on b.no_siswa=a.no left join alumni k on k.id=b.id_kelas ORDER BY k.angkatan, a.nama ASC LIMIT $offset, 10");
 }
 
 ?>
@@ -69,24 +70,142 @@ if(isset($_GET['offset'])){
     <title>Form Registrasi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    
-
-  </head>
-    </head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-QgA3UciM+JkTjtZaVcqKvhcqg2rUxlJUjAjvVrkdzZCfzD9XOZpz1G6hDwzPSksf+j1C/v8rQiQ6zjK6j9fLg==" crossorigin="anonymous" />
+      <link rel="stylesheet" href="darkmode.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">   
+</head>
 
 <body>
+<!-- sidebar -->
+
+<style>
+  .offcanvas-body {
+    align-items: top;
+  display: flex;
+  justify-content: top;
+  font-family: 'Ubuntu', sans-serif;
+  }
+  .offcanvas-header {
+    align-items: right;
+  background: linear-gradient(-45deg, rgba(0,0,0,0.22), rgba(255,255,255,0.25));
+  box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+   -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  display: flex;
+  height: 400;
+  justify-content: top;
+  width: 400px;
+  }
+  .list-group {
+    align-items: right; 
+  border-radius: 3px;
+  display: flex;
+  height: 400;
+  justify-content: top;
+  width: 400px;
+
+  }
+  .list-group-item {
+    margin-bottom: 15px; 
+    border-radius: 6px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.22), rgba(255,255,255,0.25));
+    box-shadow: 12px 13px 18px 0 rgba(0, 0, 0, 0.25);
+    height: 60px;
+    width: 300px;   
+   
+  }
+.offcanvas-body{
+  overflow-y: scroll;
+  transition: all 0.5s ease;
+}
+
+.icon-menu{
+  display: flex;
+  align-items: center;
+}
+
+.icon-menu i{
+  margin-right: 10px;
+}
+  
+  /* tombol neumorphism */
+  .btn1 {
+  min-width:150px ;
+  padding: 15px 10px;
+  margin: 8px;
+  background: rgb(214, 214, 214);
+  border: none;
+  border-radius: 10px;
+  color: rgb(50, 207, 207);
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: -7px -7px 20px 0 rgba(255, 255, 255, 0.7),
+  7px 7px 20px 0 rgba(0, 0, 0, 0.2);
+        }
+        .btn1:hover {
+          box-shadow: inset -7px -7px 20px 0 rgba(255, 255, 255, 0.7),
+          inset 7px 7px 20px 0 rgba(0, 0, 0, 0.2);
+          color: rgb(44, 179, 179);
+        }
+
+/* end .neumorphism-button */
+</style>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="color: whitesmoke"></button>
+  </div>
+  <div class="offcanvas-body" style="font-family: 'Montserrat', sans-serif;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item icon-menu d-flex align-items-center btn1" style="text-decoration: none;">
+        <i class="fas fa-user-graduate fa-2x mr-3">&nbsp;</i>
+        <a href="index.php" style="text-decoration: none;">Daftar Baru</a>
+      </li>
+      <li class="list-group-item icon-menu d-flex align-items-center btn1">
+        <i class="fas fa-chart-bar fa-2x mr-3">&nbsp;</i>
+        <a href="#" style="text-decoration: none;">Statistik</a>
+      </li>
+      <li class="list-group-item icon-menu d-flex align-items-center btn1">
+        <i class="fas fa-calendar-check fa-2x mr-3">&nbsp;</i>
+        <a href="#" style="text-decoration: none;">Event</a>
+      </li>
+      <li class="list-group-item d-flex align-items-center btn1">
+        <i class="fas fa-book fa-2x mr-3">&nbsp;</i>
+        <a href="wejangan.html" style="text-decoration: none;">Wejangan</a>
+      </li>
+      <li class="list-group-item icon-menu d-flex align-items-center btn1">
+        <i class="fas fa-info-circle fa-2x mr-3">&nbsp;</i>
+        <a href="#" style="text-decoration: none;">About</a>
+      </li>
+      <li class="list-group-item icon-menud-flex align-items-center btn1">
+<i class="fas fa-sign-out-alt fa-2x mr-3"> </i>
+<a href="keluar.php" style="text-decoration: none;">Log Out</a>
+</li>
+</ul>
+
+  </div>
+  Copyright Alumni Masafa 2020 @fauziiwd
+</div>
+
 
     <?php require_once('navbar.php'); ?>
 
-    <button type="button" class="btn btn-primary" id="liveToastBtn" 
-    style="margin-left:60px; position:relative;bottom:-40px; box-shadow: 5px 5px 20px #ccc;">Pesan Dari Admin</button>
+    <button type="button" class="btn btn-primary shadow" id="liveToastBtn" 
+    style="margin-left:60px; position:relative;bottom:-40px; font-family: 'Montserrat', sans-serif;">Pesan Dari Admin</button>
 
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="font-family: 'Montserrat', sans-serif;">
   <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="background-color: rgba(1,10,1,0.4); color: white;  backdrop-filter: blur(5px);">
     <div class="toast-header" style="background-color: #B6E2A1;">
       <img src="assets/logo.ico" class="rounded me-2" alt="...">
-      <strong class="me-auto">Admin Masafa</strong>
-      <small>Baru Saja</small>
+      <strong class="me-auto" style="color: #252525;">Admin Masafa</strong>
+      <small style="color: #252525;">Baru Saja</small>
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body">
@@ -122,9 +241,8 @@ if(isset($_GET['offset'])){
 
 </body>
 
-
     <div class="container mt-5 shadow-lg p-3 mb-5">
-        <table class="table">
+        <table class="table" style="font-family: 'Ubuntu', sans-serif;">
             <thead>
                 <tr>
                     <th scope="col">No</th>
@@ -150,7 +268,7 @@ if(isset($_GET['offset'])){
                     }
 
                     ?>
-                    <tr>
+                    <tr style="font-family: 'Montserrat', sans-serif;">
                         <th scope="row"><?= $no++; ?></th>
                         <td>
                             <?php echo $data['nama'] ?>
@@ -229,12 +347,6 @@ if(isset($_GET['offset'])){
         to {transform: translateX(10px);}
     }
 </style>
-
-
-
-
-
-
             </tbody>
         </table>
     </div>
@@ -242,6 +354,7 @@ if(isset($_GET['offset'])){
 
 
     <!-- Modal -->
+  
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -261,11 +374,11 @@ if(isset($_GET['offset'])){
     </div>
     <div class="p-4 shadow-lg p-3 mb-5 rounded flex-container" style="background: rgb(64,134,58);
 background: linear-gradient(211deg, rgba(64,134,58,1) 0%, rgba(93,164,88,1) 36%, rgba(179,255,174,1) 100%); color: #E3F6FF; margin: 40px;">
-    <h2 style="text-align:center;">Statistik Alumni</h2>
+    <h2 style="text-align:center; font-family: 'Montserrat', sans-serif;">Statistik Alumni</h2>
     </div>
     <div class="container mt-5 shadow-lg p-3 mb-5">
         <h2>Jumlah Alumni</h2>
-        <table class="table shadow-lg p-3 mb-5" style="width: 300px; border-radius:10px;">
+        <table class="table shadow-lg p-3 mb-5" style="width: 300px; border-radius:10px; font-family: 'Montserrat', sans-serif;">
             <thead>
                 <tr>
                     <th scope="col" style="width: 20px;">No</th>
@@ -299,7 +412,7 @@ background: linear-gradient(211deg, rgba(64,134,58,1) 0%, rgba(93,164,88,1) 36%,
         <!-- tabel penghitung pengguna provider -->
     <div class="container mt-5 shadow-lg p-3 mb-5">
         <h2>Jumlah Pengguna Provider</h2>
-        <table class="table shadow-lg p-3 mb-5" style="width: 600px; border-radius:10px;">
+        <table class="table shadow-lg p-3 mb-5" style="width: 600px; border-radius:10px; font-family: 'Montserrat', sans-serif;">
             <thead>
                 <tr>
                     <th scope="col" style="width: 20px;">No</th>
@@ -324,7 +437,6 @@ background: linear-gradient(211deg, rgba(64,134,58,1) 0%, rgba(93,164,88,1) 36%,
                 
             </tbody>
         </table>
-
 
 
     <!-- BOOTSTRAP -->
@@ -365,8 +477,45 @@ background: linear-gradient(211deg, rgba(64,134,58,1) 0%, rgba(93,164,88,1) 36%,
             })
 
         });
+        
 
     </script>
+ <!-- mode gelap -->
+
+ <script>
+    var toggle = document.getElementById("dark-mode-toggle");
+    var icon = document.getElementById("dark-mode-icon");
+
+    // Cek apakah user pernah mengganti mode sebelumnya
+    if(localStorage.getItem("dark-mode") === "on") {
+        var body = document.getElementsByTagName("body")[0];
+        body.classList.add("dark-mode");
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+    } else {
+        localStorage.setItem("dark-mode", "off");
+    }
+
+    toggle.addEventListener("click", function() {
+        var body = document.getElementsByTagName("body")[0];
+        body.classList.toggle("dark-mode");
+        if(body.classList.contains("dark-mode")) {
+            icon.classList.remove("fa-moon");
+            icon.classList.add("fa-sun");
+            localStorage.setItem("dark-mode", "on");
+        } else {
+            icon.classList.remove("fa-sun");
+            icon.classList.add("fa-moon");
+            localStorage.setItem("dark-mode", "off");
+        }
+        
+    });
+</script>
+
+
+
+
+
 </body>
 
 </html>

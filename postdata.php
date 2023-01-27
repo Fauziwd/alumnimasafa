@@ -10,25 +10,23 @@ $email = $_POST['email'];
 $jk = $_POST['jenkel'];
 $foto = $_FILES['foto']['name'];
 
+// Insert data ke table
+$insert_data = mysqli_query($con, "INSERT INTO data_siswa (`nama`,`nohp`,`alamat`,`email`,`jenkel`,`foto`) VALUES ('$nama','$nohp','$alamat','$email','$jk','$foto') ");
 
-// echo "Selamat $nama , alamat anda $alamat , berjenis kelamin $jk No HP $nohp , dengan email $email <br>";
-
-// echo '<img src="assets/'.$foto.'" class="card-img-top" alt="...">';
-
-
-$insert_data = mysqli_query($con, "INSERT into data_siswa (`nama`,`nohp`,`alamat`,`email`,`jenkel`,`foto`) values ('$nama','$nohp','$alamat','$email','$jk','$foto') ");
-
+// Cek jika data berhasil dimasukkan
 if ($insert_data) {
     echo "<p>Data berhasil masuk</p>";
-}else{
+}
+
+// Cek jika data gagal dimasukkan
+else{
     echo "<p>Data gagal masuk</p>";
 }
 
-echo "<br>";
-
-// echo var_dump($_FILES);
-
-// $nama = $_FILES["foto"]["name"];
-
+// Pindahkan file foto ke folder assets
 move_uploaded_file($_FILES["foto"]["tmp_name"], 'assets/'.$foto);
 
+// Kembali ke halaman index setelah data berhasil dimasukkan
+header("Location: index.php");
+
+?>

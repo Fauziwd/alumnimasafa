@@ -1,0 +1,47 @@
+:root {
+    --primary-color: #ff6f61; /* warna utama website Anda */
+    --secondary-color: #252525; /* warna sekunder website Anda */
+    --text-color: #333333; /* warna teks website Anda */
+  }
+  
+  .dark-mode {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+  }
+  
+  .dark-mode a {
+    color: var(--primary-color);
+  }
+  
+  .dark-mode h1, .dark-mode h2, .dark-mode h3, {
+    color: var(--primary-color);
+  }
+  
+  .dark-mode nav a {
+    color: var(--text-color);
+  }
+  
+  .dark-mode .button {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+  .dark-mode td, .dark-mode th, .dark-mode form {
+    color: #a5dde2;
+  }
+.btn-outline-dark {
+    --bs-btn-color: #404258;
+    --bs-btn-border-color: #404258;
+    --bs-btn-hover-color: #f5dd9f;
+    --bs-btn-hover-bg: #404258;
+}
+
+.dark-mode nav {
+  background-color: var(--secondary-color); /* warna gelap */
+}
+
+.dark-mode nav a {
+  color: var(--text-color); /* warna teks */
+}
+.modal-content .dark-mode {
+  --bs-modal-bg: #1c171d;
+}
