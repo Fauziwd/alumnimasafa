@@ -1,3 +1,5 @@
+
+
 <?php
 require_once('getdata.php');
 $no = $data['no'];
@@ -12,6 +14,15 @@ $idkelas = $data['id_kelas'];
 
 ?>
 
+<!doctype html>
+<html lang="en">
+
+<head>
+      <link rel="stylesheet" href="css/form.css">
+
+</head>
+
+<body>
 
 <?php
 
@@ -72,7 +83,8 @@ if ($_POST['aksi'] == 'ubah') {
             <input class="form-control" type="file" name="foto" id="foto">
         </div>
         <img src="assets/<?= $foto ?>" class="img-thumbnail" alt="">
-        <button type="submit" class="btn btn-sm btn-info" style="color:white" value="ubah">Ubah Data</button>
+        <button class="btn-donate">Ubah Data
+</button>
     </form>
 
 

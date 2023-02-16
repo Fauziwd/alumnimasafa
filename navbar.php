@@ -13,9 +13,13 @@
 
 <nav class="navbar navbar-expand-lg dark-mode;">
     <div class="container shadow-lg p-2 mb-4 dark-mode" style="background-color: #B6E2A1; border-radius: 3px;  ">
-    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-    ≣
-</button>&nbsp;
+<label for="burger" class="burger">
+  <input id="burger" type="checkbox" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  <span></span>
+  <span></span>
+  <span></span>
+</label>
+&nbsp;
         <a class="navbar-brand" href="loginadmin.php" style="font-family: 'Montserrat', sans-serif; background-color: #064420; border-radius: 10px; width: 250px; text-align: center; font-weight:bold; color: white;">MASAFA Database</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

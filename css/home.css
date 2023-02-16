@@ -1,0 +1,138 @@
+
+  .offcanvas-body {
+    align-items: top;
+  display: flex;
+  justify-content: top;
+  font-family: 'Ubuntu', sans-serif;
+  }
+  .offcanvas-header {
+    align-items: right;
+  background: linear-gradient(-45deg, rgba(0,0,0,0.22), rgba(255,255,255,0.25));
+  box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+   -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  display: flex;
+  height: 400;
+  justify-content: top;
+  width: 400px;
+  }
+  .list-group {
+    align-items: right; 
+  border-radius: 3px;
+  display: flex;
+  height: 400;
+  justify-content: top;
+  width: 400px;
+
+  }
+  .list-group-item {
+    margin-bottom: 15px; 
+    border-radius: 6px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.22), rgba(255,255,255,0.25));
+    box-shadow: 12px 13px 18px 0 rgba(0, 0, 0, 0.25);
+    height: 60px;
+    width: 300px;   
+   
+  }
+.offcanvas-body{
+  overflow-y: scroll;
+  transition: all 0.5s ease;
+}
+
+.icon-menu{
+  display: flex;
+  align-items: center;
+}
+
+.icon-menu i{
+  margin-right: 10px;
+}
+  
+  /* tombol neumorphism */
+  .btn1 {
+  min-width:150px ;
+  padding: 15px 10px;
+  margin: 8px;
+  background: rgb(214, 214, 214);
+  border: none;
+  border-radius: 10px;
+  color: rgb(50, 207, 207);
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: -7px -7px 20px 0 rgba(255, 255, 255, 0.7),
+  7px 7px 20px 0 rgba(0, 0, 0, 0.2);
+        }
+        .btn1:hover {
+          box-shadow: inset -7px -7px 20px 0 rgba(255, 255, 255, 0.7),
+          inset 7px 7px 20px 0 rgba(0, 0, 0, 0.2);
+          color: rgb(44, 179, 179);
+        }
+
+/* end .neumorphism-button */
+
+/* burger */
+
+.burger {
+    position: relative;
+    width: 30px;
+    margin-right: 6px;
+    margin-left: 6px;
+    height: 25px;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .burger input {
+    display: none;
+  }
+  
+  .burger span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: rgba(51, 48, 48, 0.767);
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+  }
+  
+  .burger span:nth-of-type(1) {
+    top: 0px;
+    transform-origin: left center;
+  }
+  
+  .burger span:nth-of-type(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: left center;
+  }
+  
+  .burger span:nth-of-type(3) {
+    top: 100%;
+    transform-origin: left center;
+    transform: translateY(-100%);
+  }
+  
+  .burger input:checked ~ span:nth-of-type(1) {
+    transform: rotate(45deg);
+    top: 0px;
+    left: 5px;
+  }
+  
+  .burger input:checked ~ span:nth-of-type(2) {
+    width: 0%;
+    opacity: 0;
+  }
+  
+  .burger input:checked ~ span:nth-of-type(3) {
+    transform: rotate(-45deg);
+    top: 28px;
+    left: 5px;
+  }
+  
+  /* end burger */

@@ -71,7 +71,8 @@ if(isset($_GET['offset'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-QgA3UciM+JkTjtZaVcqKvhcqg2rUxlJUjAjvVrkdzZCfzD9XOZpz1G6hDwzPSksf+j1C/v8rQiQ6zjK6j9fLg==" crossorigin="anonymous" />
-      <link rel="stylesheet" href="darkmode.css">
+      <link rel="stylesheet" href="css/darkmode.css">
+      <link rel="stylesheet" href="css/home.css">
       <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
@@ -81,86 +82,16 @@ if(isset($_GET['offset'])){
 </head>
 
 <body>
-<!-- sidebar -->
 
-<style>
-  .offcanvas-body {
-    align-items: top;
-  display: flex;
-  justify-content: top;
-  font-family: 'Ubuntu', sans-serif;
-  }
-  .offcanvas-header {
-    align-items: right;
-  background: linear-gradient(-45deg, rgba(0,0,0,0.22), rgba(255,255,255,0.25));
-  box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25),
-   -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
-  border-radius: 3px;
-  display: flex;
-  height: 400;
-  justify-content: top;
-  width: 400px;
-  }
-  .list-group {
-    align-items: right; 
-  border-radius: 3px;
-  display: flex;
-  height: 400;
-  justify-content: top;
-  width: 400px;
-
-  }
-  .list-group-item {
-    margin-bottom: 15px; 
-    border-radius: 6px;
-    background: linear-gradient(135deg, rgba(0,0,0,0.22), rgba(255,255,255,0.25));
-    box-shadow: 12px 13px 18px 0 rgba(0, 0, 0, 0.25);
-    height: 60px;
-    width: 300px;   
-   
-  }
-.offcanvas-body{
-  overflow-y: scroll;
-  transition: all 0.5s ease;
-}
-
-.icon-menu{
-  display: flex;
-  align-items: center;
-}
-
-.icon-menu i{
-  margin-right: 10px;
-}
-  
-  /* tombol neumorphism */
-  .btn1 {
-  min-width:150px ;
-  padding: 15px 10px;
-  margin: 8px;
-  background: rgb(214, 214, 214);
-  border: none;
-  border-radius: 10px;
-  color: rgb(50, 207, 207);
-  font-size: 15px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  box-shadow: -7px -7px 20px 0 rgba(255, 255, 255, 0.7),
-  7px 7px 20px 0 rgba(0, 0, 0, 0.2);
-        }
-        .btn1:hover {
-          box-shadow: inset -7px -7px 20px 0 rgba(255, 255, 255, 0.7),
-          inset 7px 7px 20px 0 rgba(0, 0, 0, 0.2);
-          color: rgb(44, 179, 179);
-        }
-
-/* end .neumorphism-button */
 </style>
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="color: whitesmoke"></button>
+    <label for="burger" class="burger">
+  <input id="burger" type="checkbox" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" aria-label="Close">
+  <span></span>
+  <span></span>
+  <span></span>
   </div>
   <div class="offcanvas-body" style="font-family: 'Montserrat', sans-serif;">
     <ul class="list-group list-group-flush">
@@ -191,7 +122,7 @@ if(isset($_GET['offset'])){
 </ul>
 
   </div>
-  Copyright Alumni Masafa 2020 @fauziiwd
+  <!-- Copyright Alumni Masafa 2020 @fauziiwd -->
 </div>
 
 

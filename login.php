@@ -6,7 +6,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-vpJE5dQlbKUJE5L5Z5U/N5rRU5Lqe/Aqm5UWfzUZvHUZu3qJxKj5kT1SJUq" crossorigin="anonymous">
+
+   <style>
         /* Styling for the eye button */
         .eye-btn {
             background-image: url('witness.png'); /*path to your image*/
@@ -77,11 +79,11 @@ transform: rotate(45deg);
 <div class="input-group">
 <input type="password" class="form-control" id="password" name="password">
 <div class="input-group-append">
-<button class="eye-btn" type="button" onclick="showPassword()"></button>
+<button class="eye-btn" type="button" onclick="showPassword()"> <i class="fa fa-eye"></i></button>
 </div>
 </div>
 <div class="col-auto">
-<span id="passwordHelpInline" class="form-text">Diisi sekitar 8-20 karakter ya..</span>
+<span id="passwordHelpInline" class="form-text">Password dari admin</span>
 </div>
 <div class="mt-3 mb-2 form-check">
 <input type="checkbox" class="form-check-input" id="ingat"

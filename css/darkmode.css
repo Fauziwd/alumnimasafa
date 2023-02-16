@@ -6,14 +6,14 @@
   
   .dark-mode {
     background-color: var(--secondary-color);
-    color: var(--text-color);
+    color: var(--primary-color);
   }
   
   .dark-mode a {
     color: var(--primary-color);
   }
   
-  .dark-mode h1, .dark-mode h2, .dark-mode h3, {
+  .dark-mode h1, .dark-mode h2, .dark-mode h3,  {
     color: var(--primary-color);
   }
   
@@ -25,7 +25,7 @@
     background-color: var(--primary-color);
     color: #fff;
   }
-  .dark-mode td, .dark-mode th, .dark-mode form {
+  .dark-mode td, .dark-mode form {
     color: #a5dde2;
   }
 .btn-outline-dark {
@@ -45,3 +45,33 @@
 .modal-content .dark-mode {
   --bs-modal-bg: #1c171d;
 }
+
+
+/* input css */
+
+.input {
+  max-width: 190px;
+  height: 30px;
+  border: 2px solid transparent;
+  outline: none;
+  border-bottom: 2px solid #3f3f3f;
+  caret-color: #3f3f3f;
+  background-color: #212121;
+  padding: 5px;
+  transition: .5s linear;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+.input:focus {
+  border: 2px solid #fa4753;
+  caret-color: #fa4753;
+  color: #fa4753;
+  box-shadow: 4px 4px 10px #070707;
+}
+
+.input:focus::placeholder {
+  color: #fa4753;
+}
+
+/* end input css */
